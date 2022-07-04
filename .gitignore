@@ -9,3 +9,4 @@ node_modules
 .idea/**/**.xml
 .vscode
 .vscode/
+.env
