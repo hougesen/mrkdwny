@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseMetaData } from '../src/lib/markdown/parseMetaData';
+import { parseMetaData } from '../src/lib/parseMetaData';
 import { readFileSync } from 'fs';
 
 describe('parseMetaData.ts', () => {

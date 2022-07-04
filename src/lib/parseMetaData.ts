@@ -1,4 +1,4 @@
-import { validateDate } from '../utils/validateDate';
+import { validateDate } from './validateDate';
 
 export interface IMarkdownMetaData {
     [key: string]: string | Date | number;

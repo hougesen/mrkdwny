@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest';
-import { parseDocument } from '../src/lib/markdown/parseDocument';
+import { parseDocument } from '../src/lib/parseDocument';
 import { readFileSync } from 'fs';
 import { validateDummyMarkdown } from './utils/validateDummyMarkdown';
 

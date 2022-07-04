@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { IMarkdownElementImage, IMarkdownElementText, parseLine } from '../src/lib/markdown/parseLine';
+import { IMarkdownElementImage, IMarkdownElementText, parseLine } from '../src/lib/parseLine';
 
 describe('parseLine.ts', () => {
     it('p', () => {

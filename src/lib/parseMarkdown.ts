@@ -1,6 +1,6 @@
-import { parseDocument } from './markdown/parseDocument';
-import { TMarkdownElement } from './markdown/parseLine';
-import { IMarkdownMetaData, parseMetaData } from './markdown/parseMetaData';
+import { parseDocument } from './parseDocument';
+import { TMarkdownElement } from './parseLine';
+import { IMarkdownMetaData, parseMetaData } from './parseMetaData';
 
 export interface IMarkdown {
     metadata?: IMarkdownMetaData;
