@@ -30,11 +30,19 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-node-
+
             - name: Install dependencies 👨🏻‍💻
               run: npm ci
 
             - name: Run format 💎
               run: npm run format
+
+            - name: 'Automated Version Bump'
+              uses: 'phips28/gh-action-bump-version@master'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag-prefix: 'v'
 
             - uses: EndBug/add-and-commit@v7
               with:
