@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseMarkdown } from '../src/lib/parseMarkdown';
+import { parseMarkdown } from '../src/index';
 import { readFileSync } from 'fs';
 import { validateDummyMarkdown } from './utils/validateDummyMarkdown';
 
