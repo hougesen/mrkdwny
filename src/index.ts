@@ -1,1 +1,3 @@
-console.log('hello');
+import { parseMarkdown } from './lib/parseMarkdown';
+
+export default parseMarkdown;
