@@ -36,6 +36,19 @@ jobs:
             - name: Build project
               run: npm run build
 
+            - name: Sort imports
+              run: npx @maikudou/import-sorter .
+
+            - name: Run format 💎
+              run: npm run format
+
+            - name: 'Automated Version Bump'
+              uses: 'phips28/gh-action-bump-version@master'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag-prefix: 'v'
+
             - name: Run lint 👀
               run: npm run lint
 
