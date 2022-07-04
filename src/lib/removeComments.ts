@@ -1,4 +1,4 @@
-export const COMMENTRegex = /<!--([^]*?)-->/gm;
+import { COMMENTRegex } from './regex/regexes';
 
 /**
  * @summary removes markdown comments

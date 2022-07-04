@@ -1,13 +1,6 @@
 import { parseImage } from './parseImage';
-
-export const H1Regex = /^(# .*$)/;
-export const H2Regex = /^(## .*$)/;
-export const H3Regex = /^(### .*$)/;
-export const H4Regex = /^(#### .*$)/;
-export const H5Regex = /^(##### .*$)/;
-export const H6Regex = /^(###### .*$)/;
-export const LINKRegex = /(\[.*\])\((.*?)\)/;
-export const IMGRegex = /(\!\[.*\])\((.*?)\)/;
+import { parseLink } from './parseLink';
+import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex, IMGRegex, LINKRegex } from './regex/regexes';
 
 export type TMarkdownElement = IMarkdownElementText | IMarkdownElementLink | IMarkdownElementImage;
 
