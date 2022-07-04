@@ -4,7 +4,7 @@ import { IMarkdownElementLink } from './parseLine';
 export function parseLink(line: string): IMarkdownElementLink {
     const linkParts = line?.replace('[', '')?.replace(')', '');
 
-    const [text, href, ..._] = linkParts.split('](');
+    const [text, href, _] = linkParts.split('](');
 
     // TODO: figure out why type bugs out
     return {

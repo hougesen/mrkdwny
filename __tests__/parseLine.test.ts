@@ -10,7 +10,9 @@ describe('parseLine.ts', () => {
         expect(text).toEqual('paragraph');
     });
 
-    it.todo('a', () => {});
+    it.todo('a', () => {
+        // TODO: validate a tag
+    });
 
     it('img', () => {
         const { tag, src, alt } = parseLine('![alt tag](https://mhouge.dk/logo.png)') as IMarkdownElementImage;
@@ -22,7 +24,9 @@ describe('parseLine.ts', () => {
         expect(src).toEqual('https://mhouge.dk/logo.png');
     });
 
-    it.todo('li', () => {});
+    it.todo('li', () => {
+        // TODO: validate list test
+    });
 
     it('h1', () => {
         const { tag, text } = parseLine('# heading 1') as IMarkdownElementText;

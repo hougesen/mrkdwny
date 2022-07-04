@@ -2,11 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { parseMetaData } from '../src/lib/markdown/parseMetaData';
 import { readFileSync } from 'fs';
 
-export const METARegex = /(.*: )/;
-
 describe('parseMetaData.ts', () => {
     it('output valid metadata', () => {
-        const dummyMetaData = readFileSync(`${__dirname}/dummy_meta.md`, 'utf8');
+        const dummyMetaData = readFileSync(`${__dirname}/mock-data/dummy_meta.md`, 'utf8');
         const result = parseMetaData(dummyMetaData);
 
         // Strings

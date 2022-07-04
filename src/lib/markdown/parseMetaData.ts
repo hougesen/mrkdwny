@@ -11,11 +11,11 @@ export function parseMetaData(data: string): IMarkdownMetaData {
 
     for (const line of data.split('\n')) {
         if (METARegex.test(line)) {
-            const [key, value, ..._] = line.split(': ');
+            const [key, value, _] = line.split(': ');
+
             const trimmedValue = value.trim();
 
             // TODO: figure out how to handle epoch timestamps
-
             if (!isNaN(Number(trimmedValue))) {
                 metadata[key.trim()] = Number(trimmedValue);
             } else if (validateDate(trimmedValue)) {
