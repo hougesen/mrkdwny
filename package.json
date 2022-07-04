@@ -1,5 +1,5 @@
 {
-    "name": "markdown-parser-ts",
+    "name": "mrkdwny",
     "version": "0.0.2",
     "description": "Markdown parser that turns the markdown into objects",
     "private": false,
@@ -17,12 +17,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hougesen/markdown-parser-ts.git"
+        "url": "git+https://github.com/hougesen/mrkdwny.git"
     },
     "bugs": {
-        "url": "https://github.com/hougesen/markdown-parser-ts/issues"
+        "url": "https://github.com/hougesen/mrkdwny/issues"
     },
-    "homepage": "https://github.com/hougesen/markdown-parser-ts#readme",
+    "homepage": "https://github.com/hougesen/mrkdwny#readme",
     "scripts": {
         "build": "tsc",
         "run:dev": "echo missing",
