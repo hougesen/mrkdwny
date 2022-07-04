@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { removeCommments } from '../src/lib/markdown/removeComments';
+import { removeCommments } from '../src/lib/removeComments';
 
 const singleLineComment = '<!-- single line comment -->';
 const multiLineComment = '<!-- \n multi line comment \n -->';

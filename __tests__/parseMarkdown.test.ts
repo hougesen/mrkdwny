@@ -1,37 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { parseMarkdown } from '../src/lib/parseMarkdown';
 import { readFileSync } from 'fs';
-import { TMarkdownElement } from '../src/lib/markdown/parseLine';
-
-function validateMarkdown(output: TMarkdownElement[]) {
-    for (const element of output) {
-        switch (element.tag) {
-            case 'p':
-            case 'h1':
-            case 'h2':
-            case 'h3':
-            case 'h4':
-            case 'h5':
-            case 'h6':
-                expect(element.tag).toEqual(element.text);
-                break;
-            case 'img':
-                expect(element.src).toBe('src');
-                expect(element.alt).toBe('alt');
-                break;
-            case 'a':
-                expect(element.text).toBe('text');
-                expect(element.href).toBe('href');
-                break;
-            // @ts-expect-error unimplemented
-            case 'code':
-                break;
-            default:
-                expect("this shouldn't be able to happen").toBe('a valid tag');
-                break;
-        }
-    }
-}
+import { validateDummyMarkdown } from './utils/validateDummyMarkdown';
 
 describe('parseMarkdown.ts', () => {
     it('Parse markdown with meta', () => {
@@ -40,7 +10,7 @@ describe('parseMarkdown.ts', () => {
 
         const { markdown, metadata } = parseMarkdown(unparsedMetaData + '\n' + unparsedMarkdown);
 
-        validateMarkdown(markdown);
+        validateDummyMarkdown(markdown);
 
         // Strings
         expect(metadata).toHaveProperty('title', 'dummy-title');
@@ -58,7 +28,7 @@ describe('parseMarkdown.ts', () => {
 
         const { markdown, metadata } = parseMarkdown(fileContent);
 
-        validateMarkdown(markdown);
+        validateDummyMarkdown(markdown);
 
         expect(metadata).toBeUndefined();
     });
