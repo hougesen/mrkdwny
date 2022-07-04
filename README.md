@@ -11,10 +11,27 @@ npm i mrkdwny
 ## Usage
 
 ```ts
-import parseMarkdown from 'mrkdwny';
-import { readFileSync } from 'fs';
+import { parseMarkdown } from 'mrkdwny';
+// or the following if you are using mjs/ts
+const parseMarkdown = require('mrkdwny').parseMarkdown;
 
-const fileContent = readFileSync('markdown_file.md', 'utf8');
+const dummyMarkdown = `
+---
+title: markdown-example
+---
+# This is a h1 heading
 
-const { markdown, metadata } = parseMarkdown(fileContent);
+This is a paragraph
+`;
+
+const result = parseMarkdown(fileContent);
+
+console.log(result);
+//  {
+//      metadata: { title: 'markdown-example' },
+//      markdown: [
+//          { tag: 'h1', text: 'This is a h1 heading' },
+//          { tag: 'p', text: 'This is a paragraph' },
+//      ],
+//  }
 ```
