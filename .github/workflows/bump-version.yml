@@ -1,0 +1,41 @@
+name: bump-version
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    bump-version:
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+            matrix:
+                os: [ubuntu-latest]
+                node: [16]
+
+        steps:
+            - name: Checkout 🛎
+              uses: actions/checkout@master
+
+            - name: Setup node env 🏗
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: ${{ matrix.node }}
+                  check-latest: true
+
+            - name: Cache node_modules 📦
+              uses: actions/cache@v2
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+            - name: Install dependencies 👨🏻‍💻
+              run: npm ci
+
+            - name: Run format 💎
+              run: npm run format
+
+            - uses: EndBug/add-and-commit@v7
+              with:
+                  message: 'build: code quality fixes from bump-version.yml'
