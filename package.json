@@ -11,7 +11,10 @@
         "build": "tsc",
         "run:dev": "echo missing",
         "run:build": "npm run build && node dist/index.js",
-        "test": "vitest"
+        "test": "vitest --run",
+        "test:dev": "vitest",
+        "format": "prettier --ignore-path .gitignore --write .",
+        "lint": "eslint --ext \".js,.mjs,.ts\" --ignore-path .gitignore ."
     },
     "devDependencies": {
         "@types/eslint": "^8.4.5",
