@@ -1,6 +1,6 @@
 {
     "name": "mrkdwny",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "Markdown parser that turns the markdown into objects",
     "private": false,
     "keywords": [
