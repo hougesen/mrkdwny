@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { parseLink } from '../src/lib/parseLink';
 
 describe('parseLink.ts', () => {

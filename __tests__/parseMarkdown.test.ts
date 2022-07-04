@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { parseMarkdown } from '../src/index';
 import { readFileSync } from 'fs';
+import { describe, expect, it } from 'vitest';
+
+import { parseMarkdown } from '../src/index';
 import { validateDummyMarkdown } from './utils/validateDummyMarkdown';
 
 describe('parseMarkdown.ts', () => {

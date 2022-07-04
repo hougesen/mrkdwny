@@ -1,6 +1,7 @@
-import { describe, it } from 'vitest';
-import { parseDocument } from '../src/lib/parseDocument';
 import { readFileSync } from 'fs';
+import { describe, it } from 'vitest';
+
+import { parseDocument } from '../src/lib/parseDocument';
 import { validateDummyMarkdown } from './utils/validateDummyMarkdown';
 
 describe('parseDocument.ts', () => {

@@ -1,4 +1,5 @@
 import { expect } from 'vitest';
+
 import { TMarkdownElement } from '../../src/lib/parseLine';
 
 export function validateDummyMarkdown(output: TMarkdownElement[]) {
