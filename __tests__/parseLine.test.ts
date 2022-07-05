@@ -1,28 +1,33 @@
 import { describe, expect, it } from 'vitest';
 
-import { IMarkdownElementImage, IMarkdownElementText, parseLine } from '../src/lib/parseLine';
+import { parseLine } from '../src/utils/parseLine';
+import mockResults from './mock-data/mockResults';
 
 describe('parseLine.ts', () => {
-    it('p', () => {
-        const { tag, text } = parseLine('paragraph') as IMarkdownElementText;
-
-        expect(tag).toEqual('p');
-
-        expect(text).toEqual('paragraph');
+    it('validate mock results', () => {
+        for (const { markdown, html } of mockResults) {
+            expect(parseLine(markdown)).toEqual(html);
+        }
     });
 
-    it.todo('a', () => {
+    it('p', () => {
+        const html = parseLine('paragraph');
+
+        expect(html).toEqual('<p>paragraph</p>');
+    });
+
+    it('a', () => {
         // TODO: validate a tag
+
+        const html = parseLine('[link text](https://mhouge.dk)');
+
+        expect(html).toEqual('<p><a href="https://mhouge.dk">link text</a></p>');
     });
 
     it('img', () => {
-        const { tag, src, alt } = parseLine('![alt tag](https://mhouge.dk/logo.png)') as IMarkdownElementImage;
+        const html = parseLine('![alt tag](https://mhouge.dk/logo.png)');
 
-        expect(tag).toEqual('img');
-
-        expect(alt).toEqual('alt tag');
-
-        expect(src).toEqual('https://mhouge.dk/logo.png');
+        expect(html).toEqual('<img src="https://mhouge.dk/logo.png" alt="alt tag" />');
     });
 
     it.todo('li', () => {
@@ -30,50 +35,38 @@ describe('parseLine.ts', () => {
     });
 
     it('h1', () => {
-        const { tag, text } = parseLine('# heading 1') as IMarkdownElementText;
+        const html = parseLine('# heading 1');
 
-        expect(tag).toEqual('h1');
-
-        expect(text).toEqual('heading 1');
+        expect(html).toEqual('<h1>heading 1</h1>');
     });
 
     it('h2', () => {
-        const { tag, text } = parseLine('## heading 2') as IMarkdownElementText;
+        const html = parseLine('## heading 2');
 
-        expect(tag).toEqual('h2');
-
-        expect(text).toEqual('heading 2');
+        expect(html).toEqual('<h2>heading 2</h2>');
     });
 
     it('h3', () => {
-        const { tag, text } = parseLine('### heading 3') as IMarkdownElementText;
+        const html = parseLine('### heading 3');
 
-        expect(tag).toEqual('h3');
-
-        expect(text).toEqual('heading 3');
+        expect(html).toEqual('<h3>heading 3</h3>');
     });
 
     it('h4', () => {
-        const { tag, text } = parseLine('#### heading 4') as IMarkdownElementText;
+        const html = parseLine('#### heading 4');
 
-        expect(tag).toEqual('h4');
-
-        expect(text).toEqual('heading 4');
+        expect(html).toEqual('<h4>heading 4</h4>');
     });
 
     it('h5', () => {
-        const { tag, text } = parseLine('##### heading 5') as IMarkdownElementText;
+        const html = parseLine('##### heading 5');
 
-        expect(tag).toEqual('h5');
-
-        expect(text).toEqual('heading 5');
+        expect(html).toEqual('<h5>heading 5</h5>');
     });
 
     it('h6', () => {
-        const { tag, text } = parseLine('###### heading 6') as IMarkdownElementText;
+        const html = parseLine('###### heading 6');
 
-        expect(tag).toEqual('h6');
-
-        expect(text).toEqual('heading 6');
+        expect(html).toEqual('<h6>heading 6</h6>');
     });
 });

@@ -1,6 +1,6 @@
 # mrkdwny
 
-Parser for turning markdown into JavaScript objects.
+Parser for turning markdown into HTML.
 
 ## Install
 

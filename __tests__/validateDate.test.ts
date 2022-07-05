@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { validateDate } from '../src/lib/validateDate';
+import { validateDate } from '../src/utils/validateDate';
 
 describe('validateDate.ts', () => {
     it('Date objects should return true', () => expect(validateDate(new Date())).toEqual(true));

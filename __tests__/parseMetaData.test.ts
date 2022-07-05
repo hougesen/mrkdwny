@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { describe, expect, it } from 'vitest';
 
-import { parseMetaData } from '../src/lib/parseMetaData';
+import { parseMetaData } from '../src/utils/parseMetaData';
 
 describe('parseMetaData.ts', () => {
     it('output valid metadata', () => {

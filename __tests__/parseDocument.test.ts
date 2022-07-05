@@ -1,14 +1,12 @@
-import { readFileSync } from 'fs';
-import { describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import { parseDocument } from '../src/lib/parseDocument';
-import { validateDummyMarkdown } from './utils/validateDummyMarkdown';
+import { parseDocument } from '../src/utils/parseDocument';
+import mockResults from './mock-data/mockResults';
 
 describe('parseDocument.ts', () => {
-    it.todo('Should give correct value', () => {
-        const unparsedMarkdown = readFileSync(`${__dirname}/mock-data/dummy_markdown.md`, 'utf8');
-
-        const parsedMarkdown = parseDocument(unparsedMarkdown);
-        validateDummyMarkdown(parsedMarkdown);
+    it('validate mock results', () => {
+        for (const { markdown, html } of mockResults) {
+            expect(parseDocument(markdown)).toEqual(html);
+        }
     });
 });
