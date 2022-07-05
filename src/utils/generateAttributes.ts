@@ -1,4 +1,4 @@
-import { IMrkdwnyOptions } from '..';
+import { IMrkdwnyOptions } from '../';
 
 export function generateAttributes(options: IMrkdwnyOptions = {}) {
     const attributes = {

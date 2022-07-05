@@ -1,4 +1,4 @@
-import { IMrkdwnyOptions } from '..';
+import { IMrkdwnyOptions } from '../';
 import { LINKRegex } from './regex';
 
 // TODO: handle title [text](https://l.ink "title")

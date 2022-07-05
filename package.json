@@ -1,6 +1,6 @@
 {
     "name": "mrkdwny",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "description": "Parser for turning markdown into HTML",
     "private": false,
     "keywords": [

@@ -1,4 +1,4 @@
-import { IMrkdwnyOptions } from '..';
+import { IMrkdwnyOptions } from '../';
 import { generateAttributes } from './generateAttributes';
 import { parseLine } from './parseLine';
 import { removeCommments } from './removeComments';

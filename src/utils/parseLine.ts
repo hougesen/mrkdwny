@@ -1,4 +1,4 @@
-import { IMrkdwnyOptions } from '..';
+import { IMrkdwnyOptions } from '../';
 import { parseImage } from './parseImage';
 import { parseLink } from './parseLink';
 import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex, IMGRegex, LINKRegex } from './regex';
