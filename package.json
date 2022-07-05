@@ -1,10 +1,11 @@
 {
     "name": "mrkdwny",
     "version": "0.0.9",
-    "description": "Markdown parser that turns the markdown into objects",
+    "description": "Parser for turning markdown into HTML",
     "private": false,
     "keywords": [
-        "markdown"
+        "markdown",
+        "markdown-parser"
     ],
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -25,6 +26,7 @@
     "homepage": "https://github.com/hougesen/mrkdwny#readme",
     "scripts": {
         "build": "tsc",
+        "build:clean": "tsc --build --clean",
         "run:dev": "echo missing",
         "run:build": "npm run build && node dist/index.js",
         "test": "vitest --run",
