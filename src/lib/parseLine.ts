@@ -26,6 +26,8 @@ export function parseLine(line: string): string {
         text = line?.replace('###### ', '')?.trim() ?? '';
     } else if (IMGRegex.test(line)) {
         return parseImage(line);
+    } else if (LINKRegex.test(line)) {
+        return parseLink(line);
     } else if (line?.trim()?.length) {
         text = line?.trim();
     }
