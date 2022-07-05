@@ -1,6 +1,6 @@
 import { parseImage } from './parseImage';
 import { parseLink } from './parseLink';
-import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex, IMGRegex, LINKRegex } from './regex/regexes';
+import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex, IMGRegex, LINKRegex } from './regex';
 
 export function parseLine(line: string): string {
     let element = 'p';

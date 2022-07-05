@@ -1,4 +1,4 @@
-import { METARegex } from './regex/regexes';
+import { METARegex } from './regex';
 import { validateDate } from './validateDate';
 
 export interface IMarkdownMetaData {

@@ -1,4 +1,4 @@
-import { LINKRegex } from './regex/regexes';
+import { LINKRegex } from './regex';
 
 // TODO: handle title [text](https://l.ink "title")
 export function generateATag(line: string): string {

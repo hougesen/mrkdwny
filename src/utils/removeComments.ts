@@ -1,4 +1,4 @@
-import { COMMENTRegex } from './regex/regexes';
+import { COMMENTRegex } from './regex';
 
 /**
  * @summary removes markdown comments
