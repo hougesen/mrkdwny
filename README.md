@@ -26,12 +26,10 @@ This is a paragraph
 
 const result = parseMarkdown(fileContent);
 
-console.log(result);
-//  {
-//      metadata: { title: 'markdown-example' },
-//      markdown: [
-//          { tag: 'h1', text: 'This is a h1 heading' },
-//          { tag: 'p', text: 'This is a paragraph' },
-//      ],
-//  }
+console.log(result.metadata);
+// { title: 'markdown-example' }
+
+console.log(result.html);
+//<h1>This is a h1 heading</h1>
+// <p>This is a paragraph</p>
 ```
