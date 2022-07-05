@@ -22,80 +22,37 @@ export interface IMarkdownElementImage {
     alt: string;
 }
 
-export function parseLine(line: string): IMarkdownElementText | IMarkdownElementLink | IMarkdownElementImage {
+export function parseLine(line: string): string {
+    let element = 'p';
+    let text = '';
+
     if (H1Regex.test(line)) {
-        return {
-            tag: 'h1',
-            text: line?.replace('# ', '')?.trim() ?? '',
-        };
-    }
-
-    if (H2Regex.test(line)) {
-        return {
-            tag: 'h2',
-            text: line?.replace('## ', '')?.trim() ?? '',
-        };
-    }
-
-    if (H3Regex.test(line)) {
-        return {
-            tag: 'h3',
-            text: line?.replace('### ', '')?.trim() ?? '',
-        };
-    }
-
-    if (H4Regex.test(line)) {
-        return {
-            tag: 'h4',
-            text: line?.replace('#### ', '')?.trim() ?? '',
-        };
-    }
-
-    if (H5Regex.test(line)) {
-        return {
-            tag: 'h5',
-            text: line?.replace('##### ', '')?.trim() ?? '',
-        };
-    }
-
-    if (H6Regex.test(line)) {
-        return {
-            tag: 'h6',
-            text: line?.replace('###### ', '')?.trim() ?? '',
-        };
-    }
-
-    if (IMGRegex.test(line)) {
+        element = 'h1';
+        text = line?.replace('# ', '')?.trim() ?? '';
+    } else if (H2Regex.test(line)) {
+        element = 'h2';
+        text = line?.replace('## ', '')?.trim() ?? '';
+    } else if (H3Regex.test(line)) {
+        element = 'h3';
+        text = line?.replace('### ', '')?.trim() ?? '';
+    } else if (H4Regex.test(line)) {
+        element = 'h4';
+        text = line?.replace('#### ', '')?.trim() ?? '';
+    } else if (H5Regex.test(line)) {
+        element = 'h5';
+        text = line?.replace('##### ', '')?.trim() ?? '';
+    } else if (H6Regex.test(line)) {
+        element = 'h6';
+        text = line?.replace('###### ', '')?.trim() ?? '';
+    } else if (IMGRegex.test(line)) {
         return parseImage(line);
+    } else if (line?.trim()?.length) {
+        text = line?.trim();
     }
 
-    // TODO: FIX LINK REGEX
-    // TODO: Add nested links
-    /* if (LINKRegex.test(line)) {
-        const parts = line?.trim()?.split(' ');
+    if (text?.length) {
+        return `<${element}>${text}</${element}>`;
+    }
 
-        return (
-            <p class={tw`text__flip`}>
-                {parts.map((p) => {
-                    if (LINKRegex.test(p)) {
-                        const { linkLocation, linkText } = parseLink(p);
-
-                        return (
-                            <a href={linkLocation} target='_blank' rel='noopener noreferrer' class={tw`text__flip`}>
-                                {' '}
-                                {linkText}{' '}
-                            </a>
-                        );
-                    } else {
-                        return ` ${p} `;
-                    }
-                })}
-            </p>
-        );
-    } */
-
-    return {
-        tag: 'p',
-        text: line?.trim(),
-    };
+    return '';
 }
