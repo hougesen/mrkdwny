@@ -1,16 +1,16 @@
 import { parseLine } from './parseLine';
 import { removeCommments } from './removeComments';
 
-export function parseDocument(lines: string) {
-    const withoutComments = removeCommments(lines);
+export function parseDocument(fileContent: string): string {
+    const withoutComments = removeCommments(fileContent)?.trim()?.split('\n');
 
-    const elements = [];
+    let html = '';
 
-    for (const line of withoutComments?.trim()?.split('\n')) {
+    for (const line of withoutComments) {
         if (line?.length) {
-            elements.push(parseLine(line));
+            html += parseLine(line);
         }
     }
 
-    return elements;
+    return html;
 }
