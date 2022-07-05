@@ -2,7 +2,13 @@ export const METARegex = /(.*: )/;
 
 export const LINKRegex = /(\[[^]*?\])\((.*?)\)/;
 
+/** For lines that only contains a link */
+export const LINKRegexSingle = /^(\[[^]*?\])\((.*?)\)$/;
+
 export const IMGRegex = /(\!\[.*\])\((.*?)\)/;
+
+/** For lines that only contains an image */
+export const IMGRegexSingle = /^(\!\[.*\])\((.*?)\)$/;
 
 export const H1Regex = /^(# .*$)/;
 
