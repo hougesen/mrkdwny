@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { removeCommments } from '../src/lib/removeComments';
+import { removeCommments } from '../src/utils/removeComments';
 
 const singleLineComment = '<!-- single line comment -->';
 const multiLineComment = '<!-- \n multi line comment \n -->';

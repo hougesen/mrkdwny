@@ -1,5 +1,5 @@
-import { parseDocument } from './lib/parseDocument';
-import { IMarkdownMetaData, parseMetaData } from './lib/parseMetaData';
+import { parseDocument } from './utils/parseDocument';
+import { IMarkdownMetaData, parseMetaData } from './utils/parseMetaData';
 
 export interface IMarkdown {
     metadata?: IMarkdownMetaData;

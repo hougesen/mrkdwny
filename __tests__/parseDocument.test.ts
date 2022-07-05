@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { parseDocument } from '../src/lib/parseDocument';
+import { parseDocument } from '../src/utils/parseDocument';
 import mockResults from './mock-data/mockResults';
 
 describe('parseDocument.ts', () => {

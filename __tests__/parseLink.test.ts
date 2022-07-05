@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { parseLink } from '../src/lib/parseLink';
+import { parseLink } from '../src/utils/parseLink';
 
 describe('parseLink.ts', () => {
     it('Valid markdown link', () => {

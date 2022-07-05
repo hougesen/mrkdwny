@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { parseImage } from '../src/lib/parseImage';
+import { parseImage } from '../src/utils/parseImage';
 
 describe('parseImage.ts', () => {
     it('return valid element', () => {
