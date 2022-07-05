@@ -1,7 +1,6 @@
 import { IMrkdwnyOptions } from '../';
-import { parseImage } from './parseImage';
-import { parseLink } from './parseLink';
-import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex, IMGRegex, LINKRegex } from './regex';
+import { parseParagraph } from './parseParagraph';
+import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex } from './regex';
 
 export function parseLine(line: string, attributes: { [key: string]: string } = {}): string {
     let element: keyof IMrkdwnyOptions = 'p';
@@ -25,12 +24,8 @@ export function parseLine(line: string, attributes: { [key: string]: string } = 
     } else if (H6Regex.test(line)) {
         element = 'h6';
         text = line?.replace('###### ', '')?.trim() ?? '';
-    } else if (IMGRegex.test(line)) {
-        return parseImage(line, attributes?.img ?? '');
-    } else if (LINKRegex.test(line)) {
-        return parseLink(line, attributes);
     } else if (line?.trim()?.length) {
-        text = line?.trim();
+        return parseParagraph(line, attributes);
     }
 
     if (text?.length) {

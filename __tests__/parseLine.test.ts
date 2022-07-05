@@ -1,15 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import { parseLine } from '../src/utils/parseLine';
-import mockResults from './mock-data/mockResults';
 
 describe('parseLine.ts', () => {
-    it('validate mock results', () => {
-        for (const { markdown, html } of mockResults) {
-            expect(parseLine(markdown)).toEqual(html);
-        }
-    });
-
     it('p', () => {
         const html = parseLine('paragraph');
 
@@ -23,11 +16,37 @@ describe('parseLine.ts', () => {
 
         expect(html).toEqual('<p><a href="https://mhouge.dk">link text</a></p>');
     });
+    it('Valid markdown link', () => {
+        const html = parseLine('[this is the link text](https://google.com)');
+
+        expect(html).toEqual('<p><a href="https://google.com">this is the link text</a></p>');
+    });
+
+    it('Link with text between', () => {
+        const html = parseLine('left [link 1](https://mhouge.dk) right');
+
+        expect(html).toEqual('<p>left <a href="https://mhouge.dk">link 1</a> right</p>');
+    });
+
+    it('Multiple links', () => {
+        const html = parseLine('[link 1](https://mhouge.dk)[link 2](https://google.com)');
+
+        expect(html).toEqual('<p><a href="https://mhouge.dk">link 1</a><a href="https://google.com">link 2</a></p>');
+    });
+
+    it('Multiple links with text between', () => {
+        const html = parseLine('left [link 1](https://mhouge.dk) middle [link 2](https://google.com) right');
+
+        expect(html).toEqual(
+            '<p>left <a href="https://mhouge.dk">link 1</a> middle <a href="https://google.com">link 2</a> right</p>'
+        );
+    });
 
     it('img', () => {
         const html = parseLine('![alt tag](https://mhouge.dk/logo.png)');
 
-        expect(html).toEqual('<img src="https://mhouge.dk/logo.png" alt="alt tag" />');
+        // TODO: figure out if this is wanted behavior
+        expect(html).toEqual('<p><img src="https://mhouge.dk/logo.png" alt="alt tag" /></p>');
     });
 
     it.todo('li', () => {

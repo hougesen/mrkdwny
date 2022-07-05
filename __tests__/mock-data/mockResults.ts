@@ -12,11 +12,15 @@ export default [
     // Img tags
     {
         markdown: '![text](/image.png)',
-        html: '<img src="/image.png" alt="text" />',
+        html: '<p><img src="/image.png" alt="text" /></p>',
     },
     {
         markdown: '![alt tag](https://mhouge.dk/logo.png)',
-        html: '<img src="https://mhouge.dk/logo.png" alt="alt tag" />',
+        html: '<p><img src="https://mhouge.dk/logo.png" alt="alt tag" /></p>',
+    },
+    {
+        markdown: '![alt tag](https://mhouge.dk/logo.png) ![alt tag2](https://mhouge.com/logo.png)',
+        html: '<p><img src="https://mhouge.dk/logo.png" alt="alt tag" /><img src="https://mhouge.com/logo.png" alt="alt tag" /></p>',
     },
     // A tags
     {
