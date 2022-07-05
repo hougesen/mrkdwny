@@ -1,5 +1,5 @@
-import { parseImage } from './parseImage';
 import { generateATag } from './generateATag';
+import { parseImage } from './parseImage';
 import { IMGRegex, LINKRegex } from './regex';
 
 export function parseParagraph(line: string, attributes: { [key: string]: string } = {}): string {
