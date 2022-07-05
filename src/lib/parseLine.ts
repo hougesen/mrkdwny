@@ -2,26 +2,6 @@ import { parseImage } from './parseImage';
 import { parseLink } from './parseLink';
 import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex, IMGRegex, LINKRegex } from './regex/regexes';
 
-export type TMarkdownElement = IMarkdownElementText | IMarkdownElementLink | IMarkdownElementImage;
-
-export interface IMarkdownElementText {
-    tag: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-    text: string;
-    children?: TMarkdownElement[];
-}
-
-export interface IMarkdownElementLink {
-    tag: 'a';
-    href: string;
-    text: string;
-}
-
-export interface IMarkdownElementImage {
-    tag: 'img';
-    src: string;
-    alt: string;
-}
-
 export function parseLine(line: string): string {
     let element = 'p';
     let text = '';
