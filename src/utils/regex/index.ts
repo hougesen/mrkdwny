@@ -27,3 +27,7 @@ export const COMMENTRegex = /<!--([^]*?)-->/gm;
 export const BOLDUnderscoreRegex = /(?<!\_)(\_\_)(?!\_)(.*?)(?<!\_)(\_\_)(?!\_)/;
 
 export const BOLDAsteriskRegex = /(?<!\*)(\*\*)(?!\*)(.*?)(?<!\*)(\*\*)(?!\*)/;
+
+export const EMUnderscoreRegex = /(?<!_)(_)(?!_)([^]*?)(?<!_)(_)(?!_)/;
+
+export const EMAsteriskRegex = /(?<!\*)(\*)(?!\*)([^]*?)(?<!\*)(\*)(?!\*)/;
