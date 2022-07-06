@@ -19,8 +19,12 @@ export default [
         html: '<p><img src="https://mhouge.dk/logo.png" alt="alt tag" /></p>',
     },
     {
-        markdown: '![alt tag](https://mhouge.dk/logo.png) ![alt tag2](https://mhouge.com/logo.png)',
-        html: '<p><img src="https://mhouge.dk/logo.png" alt="alt tag" /><img src="https://mhouge.com/logo.png" alt="alt tag" /></p>',
+        markdown: '![1alt tag1](https://mhouge.dk/logo.png)![2alt tag2](https://mhouge.com/logo.png)',
+        html: '<p><img src="https://mhouge.dk/logo.png" alt="1alt tag1" /><img src="https://mhouge.com/logo.png" alt="2alt tag2" /></p>',
+    },
+    {
+        markdown: '![1alt tag1](https://mhouge.dk/logo.png) ![2alt tag2](https://mhouge.com/logo.png)',
+        html: '<p><img src="https://mhouge.dk/logo.png" alt="1alt tag1" /> <img src="https://mhouge.com/logo.png" alt="2alt tag2" /></p>',
     },
     // A tags
     {
