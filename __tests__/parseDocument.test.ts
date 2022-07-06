@@ -1,3 +1,4 @@
+import { readFile } from 'fs/promises';
 import { describe, expect, it } from 'vitest';
 
 import { IMrkdwnyOptions } from '../src';
@@ -51,7 +52,12 @@ const dummyOptions: IMrkdwnyOptions = {
     },
 };
 
-describe('parseDocument.ts', () => {
+describe('parseDocument.ts', async () => {
+    const dummyMarkdownWithCode = await readFile(`${__dirname}/mock-data/dummy_with_code.md`, 'utf8');
+
+    const dummyMarkdownWithCodeHtml =
+        '<p>This is before the code block</p><codelang="js" class="codeblock codeblock--js">const x = 10; <br /> const y = x * x;</code><p>This is after the code block</p>';
+
     it('validate mock results', () => {
         for (const { markdown, html } of mockResults) {
             expect(parseDocument(markdown)).toEqual(html);
@@ -100,6 +106,27 @@ describe('parseDocument.ts', () => {
         );
         expect(parseDocument('__bold text__', dummyOptions)).toEqual(
             '<p class="text" style="text-align: center"><strong class="bold">bold text</strong></p>'
+        );
+    });
+
+    it('validate that codeblocks work', () => {
+        expect(parseDocument(dummyMarkdownWithCode)).toEqual(dummyMarkdownWithCodeHtml);
+    });
+
+    it("validate that whitespace doesn't matter", () => {
+        expect(
+            parseDocument(
+                dummyMarkdownWithCode
+                    ?.split('\n')
+                    ?.filter((l) => l?.trim()?.length)
+                    ?.join('\n') ?? ''
+            )
+        ).toEqual(dummyMarkdownWithCodeHtml);
+    });
+
+    it('validate that multiple codeblocks work', () => {
+        expect(parseDocument(dummyMarkdownWithCode + '\n' + dummyMarkdownWithCode)).toEqual(
+            dummyMarkdownWithCodeHtml + dummyMarkdownWithCodeHtml
         );
     });
 });
