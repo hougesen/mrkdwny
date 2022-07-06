@@ -1,4 +1,5 @@
-import { expect, it, describe } from 'vitest';
+import { describe, expect, it } from 'vitest';
+
 import { generateCodeBlock } from '../src/utils/generateCodeBlock';
 
 describe('generateCodeBlock.ts', () => {
