@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { IMrkdwnyOptions } from '../src';
 
+import { IMrkdwnyOptions } from '../src';
 import { parseDocument } from '../src/utils/parseDocument';
 import mockResults from './mock-data/mockResults';
 
