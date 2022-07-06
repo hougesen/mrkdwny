@@ -65,6 +65,19 @@ const mockResults: MockResult[] = [
         markdown: 'left__middle__right',
         html: '<p>left<strong>middle</strong>right</p>',
     },
+    // Italic and bold
+    {
+        markdown: '___italic and bold___',
+        html: '<p><em><strong>italic and bold</strong></em></p>',
+    },
+    {
+        markdown: '***italic and bold***',
+        html: '<p><em><strong>italic and bold</strong></em></p>',
+    },
+    {
+        markdown: 'this is a line with ***italic and bold with asterisk*** and ***italic and bold with underscore***',
+        html: '<p>this is a line with <em><strong>italic and bold with asterisk</strong></em> and <em><strong>italic and bold with underscore</strong></em></p>',
+    },
     // Img tags
     {
         markdown: '![text](/image.png)',

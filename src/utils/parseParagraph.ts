@@ -4,6 +4,8 @@ import { generateStrongTag } from './generateStrongTag';
 import { parseImage } from './parseImage';
 import {
     BOLDAsteriskRegex,
+    BOLDEMAsterisRegex,
+    BOLDEMUnderscoreRegex,
     BOLDUnderscoreRegex,
     EMAsteriskRegex,
     EMUnderscoreRegex,
@@ -13,6 +15,37 @@ import {
 
 export function parseParagraph(line: string, attributes: { [key: string]: string } = {}): string {
     // TODO: cleanup this mess
+
+    // Bold and em line
+    /**@xample ___bold and italic___ */
+    while (BOLDEMUnderscoreRegex.test(line)) {
+        const matched = line.match(BOLDEMUnderscoreRegex);
+
+        if (matched?.length) {
+            const strongTag = generateStrongTag(
+                matched[0].slice(1, matched[0].length - 1),
+                '__',
+                attributes?.strong ?? ''
+            );
+
+            line = line.replace(matched[0], generateEmTag(`*${strongTag}*`, attributes?.em ?? ''));
+        }
+    }
+
+    /**@xample ***bold and italic*** */
+    while (BOLDEMAsterisRegex.test(line)) {
+        const matched = line.match(BOLDEMAsterisRegex);
+
+        if (matched?.length) {
+            const strongTag = generateStrongTag(
+                matched[0].slice(1, matched[0].length - 1),
+                '**',
+                attributes?.strong ?? ''
+            );
+
+            line = line.replace(matched[0], generateEmTag(`*${strongTag}*`, attributes?.em ?? ''));
+        }
+    }
 
     // Em with _underscore_
     while (EMUnderscoreRegex.test(line)) {
