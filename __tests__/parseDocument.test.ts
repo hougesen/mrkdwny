@@ -56,7 +56,7 @@ describe('parseDocument.ts', async () => {
     const dummyMarkdownWithCode = await readFile(`${__dirname}/mock-data/dummy_with_code.md`, 'utf8');
 
     const dummyMarkdownWithCodeHtml =
-        '<p>This is before the code block</p><codelang="js" class="codeblock codeblock--js">const x = 10; <br /> const y = x * x;</code><p>This is after the code block</p>';
+        '<p>This is before the code block</p><code lang="js" class="codeblock codeblock--js">const x = 10; <br /> const y = x * x;</code><p>This is after the code block</p>';
 
     it('validate mock results', () => {
         for (const { markdown, html } of mockResults) {

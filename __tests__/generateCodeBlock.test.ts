@@ -9,7 +9,7 @@ describe('generateCodeBlock.ts', () => {
         for (const language of languages) {
             expect(generateCodeBlock(['```' + language, 'const x = 10;', 'const y = Math.pow(x,x);', '```'])).toEqual(
                 `<code${
-                    language ? `lang="${language}" class="codeblock codeblock--${language}"` : ''
+                    language ? ` lang="${language}" class="codeblock codeblock--${language}"` : ''
                 }>const x = 10; <br /> const y = Math.pow(x,x);</code>`
             );
         }

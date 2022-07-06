@@ -11,7 +11,7 @@ export function generateCodeBlock(code: string[], attributes = ''): string {
 
     code.pop();
 
-    return `<code${language ? `lang="${language}"` : ''}${attributes}>${code
+    return `<code${language ? ` lang="${language}"` : ''}${attributes}>${code
         ?.filter((l) => l?.trim()?.length && l?.includes('```') === false)
         ?.join(' <br /> ')}</code>`;
 }
