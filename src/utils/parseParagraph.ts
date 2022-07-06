@@ -1,7 +1,7 @@
 import { generateATag } from './generateATag';
 import { generateStrongTag } from './generateStrongTag';
 import { parseImage } from './parseImage';
-import { BOLDUAsteriskRegex, BOLDUnderscoreRegex, IMGRegex, LINKRegex } from './regex';
+import { BOLDAsteriskRegex, BOLDUnderscoreRegex, IMGRegex, LINKRegex } from './regex';
 
 export function parseParagraph(line: string, attributes: { [key: string]: string } = {}): string {
     // TODO: cleanup this mess
@@ -16,8 +16,8 @@ export function parseParagraph(line: string, attributes: { [key: string]: string
     }
 
     // Bold with **asterisk**
-    while (BOLDUAsteriskRegex.test(line)) {
-        const matched = line.match(BOLDUAsteriskRegex);
+    while (BOLDAsteriskRegex.test(line)) {
+        const matched = line.match(BOLDAsteriskRegex);
 
         if (matched?.length) {
             line = line.replace(matched[0], generateStrongTag(matched[0], '*'));

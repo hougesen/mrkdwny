@@ -26,4 +26,4 @@ export const COMMENTRegex = /<!--([^]*?)-->/gm;
 
 export const BOLDUnderscoreRegex = /__(.*?)__/;
 
-export const BOLDUAsteriskRegex = /\*\*(.*?)\*\*/;
+export const BOLDAsteriskRegex = /\*\*(.*?)\*\*/;
