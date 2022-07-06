@@ -2,6 +2,10 @@
 
 Parser for turning markdown into HTML.
 
+[![ci](https://github.com/hougesen/mrkdwny/workflows/ci/badge.svg)](https://github.com/hougesen/mrkdwny/actions/workflows/ci.yml)
+[![npm-publish](https://github.com/hougesen/mrkdwny/workflows/npm-publish/badge.svg)](https://github.com/hougesen/mrkdwny/actions/workflows/npm-publish.yml)
+[![npm version](https://badge.fury.io/js/mrkdwny.svg)](https://badge.fury.io/js/mrkdwny)
+
 ## Install
 
 ```sh
