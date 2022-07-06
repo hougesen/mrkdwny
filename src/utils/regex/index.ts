@@ -24,6 +24,6 @@ export const H6Regex = /^(###### .*$)/;
 
 export const COMMENTRegex = /<!--([^]*?)-->/gm;
 
-export const BOLDUnderscoreRegex = /__(.*?)__/;
+export const BOLDUnderscoreRegex = /(?<!\_)(\_\_)(?!\_)(.*?)(?<!\_)(\_\_)(?!\_)/;
 
-export const BOLDAsteriskRegex = /\*\*(.*?)\*\*/;
+export const BOLDAsteriskRegex = /(?<!\*)(\*\*)(?!\*)(.*?)(?<!\*)(\*\*)(?!\*)/;
