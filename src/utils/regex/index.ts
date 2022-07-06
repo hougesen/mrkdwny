@@ -31,3 +31,27 @@ export const BOLDAsteriskRegex = /(?<!\*)(\*\*)(?!\*)(.*?)(?<!\*)(\*\*)(?!\*)/;
 export const EMUnderscoreRegex = /(?<!_)(_)(?!_)([^]*?)(?<!_)(_)(?!_)/;
 
 export const EMAsteriskRegex = /(?<!\*)(\*)(?!\*)([^]*?)(?<!\*)(\*)(?!\*)/;
+
+/**
+ * @summary used when the text is both bold and italic
+ * @example
+ * The following markdown
+ * ***bold and italic***
+ *
+ * Should be used to return the following
+ * <p><em><strong>bold and italic</strong></em></p>
+ *
+ */
+export const BOLDEMAsterisRegex = /(?<!\*)(\*\*\*)(?!\*)(.*?)(?<!\*)(\*\*\*)(?!\*)/;
+
+/**
+ * @summary used when the text is both bold and italic
+ * @example
+ * The following markdown
+ * ___bold and italic___
+ *
+ * Should be used to return the following
+ * <p><em><strong>bold and italic</strong></em></p>
+ *
+ */
+export const BOLDEMUnderscoreRegex = /(?<!\_)(\_\_\_)(?!\_)(.*?)(?<!\_)(\_\_\_)(?!\_)/;
