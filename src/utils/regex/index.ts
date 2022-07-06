@@ -23,3 +23,7 @@ export const H5Regex = /^(##### .*$)/;
 export const H6Regex = /^(###### .*$)/;
 
 export const COMMENTRegex = /<!--([^]*?)-->/gm;
+
+export const BOLDUnderscoreRegex = /__(.*?)__/;
+
+export const BOLDUAsteriskRegex = /\*\*(.*?)\*\*/;
