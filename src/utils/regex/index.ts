@@ -55,3 +55,5 @@ export const BOLDEMAsterisRegex = /(?<!\*)(\*\*\*)(?!\*)(.*?)(?<!\*)(\*\*\*)(?!\
  *
  */
 export const BOLDEMUnderscoreRegex = /(?<!\_)(\_\_\_)(?!\_)(.*?)(?<!\_)(\_\_\_)(?!\_)/;
+
+export const CODERegex = /^(```)([^]*?)(```)/;
