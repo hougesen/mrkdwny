@@ -1,4 +1,5 @@
 import { generateATag } from './generateATag';
+import { ElementAttributes } from './generateAttributes';
 import { generateEmTag } from './generateEmTag';
 import { generateStrongTag } from './generateStrongTag';
 import { parseImage } from './parseImage';
@@ -13,7 +14,7 @@ import {
     LINKRegex,
 } from './regex';
 
-export function parseParagraph(line: string, attributes: { [key: string]: string } = {}): string {
+export function parseParagraph(line: string, attributes: ElementAttributes = {}): string {
     // TODO: cleanup this mess
 
     // Bold and em line

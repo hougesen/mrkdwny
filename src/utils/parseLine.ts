@@ -1,8 +1,9 @@
 import { IMrkdwnyElementOptions } from '../';
+import { ElementAttributes } from './generateAttributes';
 import { parseParagraph } from './parseParagraph';
 import { H1Regex, H2Regex, H3Regex, H4Regex, H5Regex, H6Regex } from './regex';
 
-export function parseLine(line: string, attributes: { [key: string]: string } = {}): string {
+export function parseLine(line: string, attributes: ElementAttributes = {}): string {
     let element: keyof IMrkdwnyElementOptions = 'p';
     let text = '';
     let elementAttributes = '';
