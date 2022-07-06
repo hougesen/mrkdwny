@@ -1,31 +1,30 @@
-import { IMrkdwnyOptions } from '../';
+import { IMrkdwnyElementOptions } from '../';
 
-export function generateAttributes(options: IMrkdwnyOptions = {}) {
-    const attributes = {
-        p: '',
-        a: '',
-        img: '',
-        h1: '',
-        h2: '',
-        h3: '',
-        h4: '',
-        h5: '',
-        h6: '',
-    };
+export type ElementAttributes = {
+    // TODO: figure out why typescript expects the key to be used
+    // eslint-disable-next-line no-unused-vars
+    [key in keyof IMrkdwnyElementOptions]?: string;
+};
 
-    const optionKeys = Object.keys(options ?? {});
+export function generateAttributes(elementOptions: IMrkdwnyElementOptions = {}): ElementAttributes {
+    const attributes: ElementAttributes = {};
+
+    const optionKeys = Object.keys(elementOptions ?? {});
 
     if (optionKeys.length) {
         for (const key of optionKeys) {
             // TODO: fix this type
-            // @ts-expect-error ???
-            const keyAttributes = Object.keys(options[key] ?? {});
+            const keyAttributes = Object.keys(elementOptions[key as keyof IMrkdwnyElementOptions] ?? {});
+
+            attributes[key as keyof IMrkdwnyElementOptions] = '';
 
             if (keyAttributes.length) {
                 for (const attribute of keyAttributes) {
-                    // TODO: fix this type
-                    // @ts-expect-error ???
-                    attributes[key] += ` ${attribute}="${options[key][attribute]}"`;
+                    if (typeof attribute === 'string') {
+                        // TODO: fix this type
+                        // @ts-expect-error ???
+                        attributes[key] += ` ${attribute}="${elementOptions[key][attribute]}"`;
+                    }
                 }
             }
         }

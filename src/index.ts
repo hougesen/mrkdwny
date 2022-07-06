@@ -30,16 +30,21 @@ export interface IImgOptions extends IElementBaseOptions {
 
 export type TElementOptions = IImgOptions | IATagOptions | IElementBaseOptions;
 
-export interface IMrkdwnyOptions {
+export interface IMrkdwnyElementOptions {
     p?: IElementBaseOptions;
     a?: IATagOptions;
     img?: IImgOptions;
+    em?: IElementBaseOptions;
+    strong?: IElementBaseOptions;
     h1?: IElementBaseOptions;
     h2?: IElementBaseOptions;
     h3?: IElementBaseOptions;
     h4?: IElementBaseOptions;
     h5?: IElementBaseOptions;
     h6?: IElementBaseOptions;
+}
+export interface IMrkdwnyOptions {
+    elements?: IMrkdwnyElementOptions;
 }
 
 export function parseMarkdown(fileContent: string, options: IMrkdwnyOptions = {}): IMarkdown {

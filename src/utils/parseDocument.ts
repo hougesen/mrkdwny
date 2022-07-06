@@ -6,7 +6,7 @@ import { removeCommments } from './removeComments';
 export function parseDocument(fileContent: string, options: IMrkdwnyOptions = {}): string {
     const withoutComments = removeCommments(fileContent)?.trim()?.split('\n');
 
-    const attributes = generateAttributes(options);
+    const attributes = generateAttributes(options?.elements);
 
     let html = '';
 
