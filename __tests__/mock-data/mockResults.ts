@@ -3,11 +3,67 @@ interface MockResult {
     html: string;
 }
 
-export default [
+const mockResults: MockResult[] = [
+    // mix of everything
+    {
+        markdown: 'normal paragraph **bold with asterisk** __bold with underscore__ ![alt](src) [text](href)',
+        html: '<p>normal paragraph <strong>bold with asterisk</strong> <strong>bold with underscore</strong> <img src="src" alt="alt" /> <a href="href">text</a></p>',
+    },
     // Paragraph
     {
         markdown: 'paragraph',
         html: '<p>paragraph</p>',
+    },
+    // italiac
+    {
+        markdown: 'italic_with_underscore',
+        html: '<p>italic<em>with</em>underscore</p>',
+    },
+    {
+        markdown: '_double_ _italic_',
+
+        html: '<p><em>double</em> <em>italic</em></p>',
+    },
+    {
+        markdown: '_double__italic_',
+        html: '<p><em>double__italic</em></p>',
+    },
+    {
+        markdown: 'italic*with*asterisk',
+        html: '<p>italic<em>with</em>asterisk</p>',
+    },
+    {
+        markdown: 'mix_of_*em*types',
+        html: '<p>mix<em>of</em><em>em</em>types</p>',
+    },
+    {
+        markdown: '*em* and **bold** _mixed_ **together**',
+        html: '<p><em>em</em> and <strong>bold</strong> <em>mixed</em> <strong>together</strong></p>',
+    },
+    // Bold
+    {
+        markdown: '__bold with underscore__',
+        html: '<p><strong>bold with underscore</strong></p>',
+    },
+    {
+        markdown: '**bold with asterisk**',
+        html: '<p><strong>bold with asterisk</strong></p>',
+    },
+    {
+        markdown: 'text on the left **with** spaces and asterisk',
+        html: '<p>text on the left <strong>with</strong> spaces and asterisk</p>',
+    },
+    {
+        markdown: 'text on the left __with__ spaces and underscore',
+        html: '<p>text on the left <strong>with</strong> spaces and underscore</p>',
+    },
+    {
+        markdown: 'left**middle**right',
+        html: '<p>left<strong>middle</strong>right</p>',
+    },
+    {
+        markdown: 'left__middle__right',
+        html: '<p>left<strong>middle</strong>right</p>',
     },
     // Img tags
     {
@@ -72,4 +128,6 @@ export default [
         markdown: '###### heading 6',
         html: '<h6>heading 6</h6>',
     },
-] as MockResult[];
+];
+
+export default mockResults;
