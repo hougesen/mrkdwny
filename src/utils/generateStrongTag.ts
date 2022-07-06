@@ -1,10 +1,10 @@
-export function generateStrongTag(line: string, type: string): string {
+export function generateStrongTag(line: string, type: string, attributes = ''): string {
     if (type === '_') {
-        return line?.replace('__', '<strong>')?.replace('__', '</strong>');
+        return line?.replace('__', `<strong${attributes}>`)?.replace('__', '</strong$>');
     }
 
     if (type === '*') {
-        return line?.replace('**', '<strong>')?.replace('**', '</strong>');
+        return line?.replace('**', `<strong${attributes}>`)?.replace('**', '</strong>');
     }
 
     return '';

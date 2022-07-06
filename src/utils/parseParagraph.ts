@@ -37,7 +37,7 @@ export function parseParagraph(line: string, attributes: { [key: string]: string
         const matched = line.match(BOLDUnderscoreRegex);
 
         if (matched?.length) {
-            line = line.replace(matched[0], generateStrongTag(matched[0], '_'));
+            line = line.replace(matched[0], generateStrongTag(matched[0], '__', attributes?.strong ?? ''));
         }
     }
 
@@ -46,7 +46,7 @@ export function parseParagraph(line: string, attributes: { [key: string]: string
         const matched = line.match(BOLDAsteriskRegex);
 
         if (matched?.length) {
-            line = line.replace(matched[0], generateStrongTag(matched[0], '*'));
+            line = line.replace(matched[0], generateStrongTag(matched[0], '**', attributes?.strong ?? ''));
         }
     }
 
