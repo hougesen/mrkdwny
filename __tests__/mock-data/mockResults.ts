@@ -14,6 +14,32 @@ const mockResults: MockResult[] = [
         markdown: 'paragraph',
         html: '<p>paragraph</p>',
     },
+    // italiac
+    {
+        markdown: 'italic_with_underscore',
+        html: '<p>italic<em>with</em>underscore</p>',
+    },
+    {
+        markdown: '_double_ _italic_',
+
+        html: '<p><em>double</em> <em>italic</em></p>',
+    },
+    {
+        markdown: '_double__italic_',
+        html: '<p><em>double__italic</em></p>',
+    },
+    {
+        markdown: 'italic*with*asterisk',
+        html: '<p>italic<em>with</em>asterisk</p>',
+    },
+    {
+        markdown: 'mix_of_*em*types',
+        html: '<p>mix<em>of</em><em>em</em>types</p>',
+    },
+    {
+        markdown: '*em* and **bold** _mixed_ **together**',
+        html: '<p><em>em</em> and <strong>bold</strong> <em>mixed</em> <strong>together</strong></p>',
+    },
     // Bold
     {
         markdown: '__bold with underscore__',
