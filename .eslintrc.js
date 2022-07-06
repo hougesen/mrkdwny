@@ -21,5 +21,6 @@ module.exports = {
                 destructuredArrayIgnorePattern: '^_',
             },
         ],
+        'no-console': ['error', { allow: ['warn', 'error'] }],
     },
 };
