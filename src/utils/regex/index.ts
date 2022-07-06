@@ -5,7 +5,7 @@ export const LINKRegex = /(\[[^]*?\])\((.*?)\)/;
 /** For lines that only contains a link */
 export const LINKRegexSingle = /^((\[.*\]?)(\(.*\)?))(?!)/;
 
-export const IMGRegex = /(\!\[.*\])\((.*?)\)/;
+export const IMGRegex = /(!\[[^]*?\])\((.*?)\)/;
 
 /** For lines that only contains an image */
 export const IMGRegexSingle = /^((\!\[.*\]?)(\(.*\)?))(?!)/;

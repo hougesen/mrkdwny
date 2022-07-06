@@ -34,6 +34,12 @@ describe('parseParagraph', () => {
         );
     });
 
+    it('image+image', () => {
+        expect(parseLine(dummyImageMarkdown + dummyImageMarkdown)).toEqual(
+            '<p>' + dummyImageHtml + dummyImageHtml + '</p>'
+        );
+    });
+
     it('link+link', () => {
         expect(parseLine('[link 1](https://mhouge.dk)[link 2](https://google.com)')).toEqual(
             '<p><a href="https://mhouge.dk">link 1</a><a href="https://google.com">link 2</a></p>'
