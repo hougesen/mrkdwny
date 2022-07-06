@@ -42,6 +42,7 @@ export interface IMrkdwnyElementOptions {
     h4?: IElementBaseOptions;
     h5?: IElementBaseOptions;
     h6?: IElementBaseOptions;
+    code?: IElementBaseOptions;
 }
 export interface IMrkdwnyOptions {
     elements?: IMrkdwnyElementOptions;
