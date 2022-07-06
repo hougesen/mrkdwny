@@ -17,7 +17,7 @@ export function parseParagraph(line: string, attributes: { [key: string]: string
     // TODO: cleanup this mess
 
     // Bold and em line
-    /**@xample ___bold and italic___ */
+    /**@example ___bold and italic___ */
     while (BOLDEMUnderscoreRegex.test(line)) {
         const matched = line.match(BOLDEMUnderscoreRegex);
 
@@ -32,7 +32,7 @@ export function parseParagraph(line: string, attributes: { [key: string]: string
         }
     }
 
-    /**@xample ***bold and italic*** */
+    /**@example ***bold and italic*** */
     while (BOLDEMAsterisRegex.test(line)) {
         const matched = line.match(BOLDEMAsterisRegex);
 
