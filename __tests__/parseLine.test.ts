@@ -1,8 +1,15 @@
 import { describe, expect, it } from 'vitest';
 
 import { parseLine } from '../src/utils/parseLine';
+import mockResults from './mock-data/mockResults';
 
 describe('parseLine.ts', () => {
+    it('validate mock results', () => {
+        for (const { markdown, html } of mockResults) {
+            expect(parseLine(markdown)).toEqual(html);
+        }
+    });
+
     it('p', () => {
         const html = parseLine('paragraph');
 
