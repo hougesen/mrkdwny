@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest';
 import { benchSync } from 'picobench';
+import { describe, expect, it } from 'vitest';
+
 import { generateATag } from '../src/utils/generateATag';
 
 describe('generateATag.ts', () => {
