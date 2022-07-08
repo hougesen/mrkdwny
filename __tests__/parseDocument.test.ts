@@ -1,4 +1,5 @@
 import { readFile } from 'fs/promises';
+import { benchSync } from 'picobench';
 import { describe, expect, it } from 'vitest';
 
 import { IMrkdwnyOptions } from '../src';
@@ -61,6 +62,10 @@ describe('parseDocument.ts', async () => {
     it('validate mock results', () => {
         for (const { markdown, html } of mockResults) {
             expect(parseDocument(markdown)).toEqual(html);
+
+            const benchmarkResult = benchSync(() => parseDocument(markdown));
+
+            expect(benchmarkResult.average).toBeLessThanOrEqual(1);
         }
     });
 
@@ -114,19 +119,26 @@ describe('parseDocument.ts', async () => {
     });
 
     it("validate that whitespace doesn't matter", () => {
-        expect(
-            parseDocument(
-                dummyMarkdownWithCode
-                    ?.split('\n')
-                    ?.filter((l) => l?.trim()?.length)
-                    ?.join('\n') ?? ''
-            )
-        ).toEqual(dummyMarkdownWithCodeHtml);
+        const markdown =
+            dummyMarkdownWithCode
+                ?.split('\n')
+                ?.filter((l) => l?.trim()?.length)
+                ?.join('\n') ?? '';
+
+        expect(parseDocument(markdown)).toEqual(dummyMarkdownWithCodeHtml);
+
+        const benchmarkResult = benchSync(() => parseDocument(markdown), { runs: 10 });
+
+        expect(benchmarkResult.average).toBeLessThanOrEqual(1);
     });
 
     it('validate that multiple codeblocks work', () => {
-        expect(parseDocument(dummyMarkdownWithCode + '\n' + dummyMarkdownWithCode)).toEqual(
-            dummyMarkdownWithCodeHtml + dummyMarkdownWithCodeHtml
-        );
+        const markdown = dummyMarkdownWithCode + '\n' + dummyMarkdownWithCode;
+
+        expect(parseDocument(markdown)).toEqual(dummyMarkdownWithCodeHtml + dummyMarkdownWithCodeHtml);
+
+        const benchmarkResult = benchSync(() => parseDocument(markdown), { runs: 10 });
+
+        expect(benchmarkResult.average).toBeLessThanOrEqual(1);
     });
 });

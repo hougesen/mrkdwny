@@ -1,3 +1,4 @@
+import { benchSync } from 'picobench';
 import { describe, expect, it } from 'vitest';
 
 import { parseLine } from '../src/utils/parseLine';
@@ -7,6 +8,10 @@ describe('parseLine.ts', () => {
     it('validate mock results', () => {
         for (const { markdown, html } of mockResults) {
             expect(parseLine(markdown)).toEqual(html);
+
+            const benchmarkResult = benchSync(() => parseLine(markdown));
+
+            expect(benchmarkResult.average).toBeLessThanOrEqual(1);
         }
     });
 
