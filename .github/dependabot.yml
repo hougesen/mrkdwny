@@ -8,14 +8,6 @@ updates:
           - 'hougesen'
       open-pull-requests-limit: 25
 
-    - package-ecosystem: 'npm'
-      directory: '/www'
-      schedule:
-          interval: 'monthly'
-      assignees:
-          - 'hougesen'
-      open-pull-requests-limit: 25
-
     - package-ecosystem: 'github-actions'
       directory: '/'
       schedule:
