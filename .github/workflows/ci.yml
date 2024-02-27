@@ -1,53 +1,42 @@
 name: ci
 on:
     push:
-        branches:
-            - master
 
 jobs:
-    ci:
+    lint:
         runs-on: ${{ matrix.os }}
 
         strategy:
             matrix:
                 os: [ubuntu-latest]
-                node: [16]
+                node: [16, 18, 20]
 
         steps:
             - name: Checkout 🛎
-              uses: actions/checkout@master
+              uses: actions/checkout@v4
 
             - name: Setup node env 🏗
-              uses: actions/setup-node@v2.1.2
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node }}
                   check-latest: true
 
             - name: Cache node_modules 📦
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               with:
                   path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  key: ${{ runner.os }}-${{ matrix.node }}-node-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
-                      ${{ runner.os }}-node-
+                      ${{ runner.os }}-${{ matrix.node }}-node-
+
             - name: Install dependencies 👨🏻‍💻
-              run: npm ci
+              run: npm install
 
             - name: Build project
               run: npm run build
-
-            - name: Sort imports
-              run: npx @maikudou/import-sorter .
-
-            - name: Run format 💎
-              run: npm run format
 
             - name: Run lint 👀
               run: npm run lint
 
             - name: Run test 👀
               run: npm run test
-
-            - uses: EndBug/add-and-commit@v7
-              with:
-                  message: 'build: code quality fixes from ci.yml'
