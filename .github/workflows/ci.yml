@@ -48,6 +48,6 @@ jobs:
             - name: Run test 👀
               run: npm run test
 
-            - uses: EndBug/add-and-commit@v7
+            - uses: EndBug/add-and-commit@v9
               with:
                   message: 'build: code quality fixes from ci.yml'
