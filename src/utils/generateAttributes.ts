@@ -1,10 +1,6 @@
 import { IMrkdwnyElementOptions } from '../';
 
-export type ElementAttributes = {
-    // TODO: figure out why typescript expects the key to be used
-    // eslint-disable-next-line no-unused-vars
-    [key in keyof IMrkdwnyElementOptions]?: string;
-};
+export type ElementAttributes = Partial<Record<keyof IMrkdwnyElementOptions, string>>;
 
 export function generateAttributes(elementOptions: IMrkdwnyElementOptions = {}): ElementAttributes {
     const attributes: ElementAttributes = {};

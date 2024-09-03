@@ -55,7 +55,7 @@ export function parseMarkdown(fileContent: string, options: IMrkdwnyOptions = {}
     };
 
     if (fileContent.includes('---')) {
-        const [_, metaData, lines] = fileContent?.trim()?.split('---');
+        const [_, metaData, lines] = fileContent.trim().split('---');
 
         result.html = parseDocument(lines, options);
         result.metadata = parseMetaData(metaData);

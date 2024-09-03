@@ -1,9 +1,7 @@
 import { METARegex } from './regex';
 import { validateDate } from './validateDate';
 
-export interface IMarkdownMetaData {
-    [key: string]: string | Date | number;
-}
+export type IMarkdownMetaData = Record<string, string | Date | number>;
 
 export function parseMetaData(data: string): IMarkdownMetaData {
     const metadata: IMarkdownMetaData = {};
